@@ -1,0 +1,60 @@
+table query_mix
+	lineageTag: 75d02482-9c64-5eee-909c-b8ad7705cc8f
+
+	measure 'Share of queries' = SUM(query_mix[share])
+		formatString: 0%
+		lineageTag: 4e1f2272-7942-557d-9c06-6cbb6d7ec4f3
+
+	column variant
+		dataType: string
+		lineageTag: 31df8ae3-ce26-5b76-b2e6-99ac6c1328af
+		summarizeBy: none
+		sourceColumn: variant
+		sortByColumn: variant_order
+
+	column qtype
+		dataType: string
+		lineageTag: c3e74192-14db-5726-a886-ff50678b4616
+		summarizeBy: none
+		sourceColumn: qtype
+		sortByColumn: qtype_order
+
+	column n
+		dataType: string
+		lineageTag: 7270737a-d3da-5f81-add9-9d607e5d75b2
+		summarizeBy: none
+		sourceColumn: n
+
+	column share
+		dataType: double
+		formatString: 0.00
+		lineageTag: c2918457-298f-5f11-a254-45d65cfcfea1
+		summarizeBy: none
+		sourceColumn: share
+
+	column variant_order
+		dataType: int64
+		isHidden
+		lineageTag: 81e446e6-bbc4-500a-9e20-37946ae280c7
+		summarizeBy: none
+		sourceColumn: variant_order
+
+	column qtype_order
+		dataType: int64
+		isHidden
+		lineageTag: 62ed9b6f-8544-5787-a78e-7d97380c2253
+		summarizeBy: none
+		sourceColumn: qtype_order
+
+	partition query_mix = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "query_mix.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"variant", type text}, {"qtype", type text}, {"n", type text}, {"share", type number}, {"variant_order", Int64.Type}, {"qtype_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

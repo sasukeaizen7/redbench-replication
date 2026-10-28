@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "definitions_04",
+  "position": {
+    "x": 16,
+    "y": 520,
+    "z": 3000,
+    "height": 184,
+    "width": 1248,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "definitions"
+                    }
+                  },
+                  "Property": "metric"
+                }
+              },
+              "queryRef": "definitions.metric",
+              "nativeQueryRef": "metric",
+              "active": true
+            }
+          ]
+        },
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "definitions"
+                    }
+                  },
+                  "Property": "series"
+                }
+              },
+              "queryRef": "definitions.series",
+              "nativeQueryRef": "series",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "definitions"
+                    }
+                  },
+                  "Property": "definition"
+                }
+              },
+              "queryRef": "definitions.definition",
+              "nativeQueryRef": "definition",
+              "active": false
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "definitions"
+                    }
+                  },
+                  "Property": "Definition rate"
+                }
+              },
+              "queryRef": "definitions.Definition rate",
+              "nativeQueryRef": "Definition rate"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'All series'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

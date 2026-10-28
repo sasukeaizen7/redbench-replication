@@ -1,0 +1,4 @@
+label,source,value,source_order
+Paper (Redset),Paper,0.25,1
+Redset provisioned,Replication,0.5109763651605369,2
+Redset serverless,Replication,0.3915301679234567,2

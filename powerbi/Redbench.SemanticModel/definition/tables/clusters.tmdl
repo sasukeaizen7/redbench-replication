@@ -1,0 +1,98 @@
+table clusters
+	lineageTag: 0750b49a-66df-56e6-8e0c-2b1b69f374ff
+
+	measure Clusters = COUNTROWS('clusters')
+		formatString: 0
+		lineageTag: d13485c8-e2a9-5e7a-b440-270a966fff22
+
+	measure 'Avg QRR (DML-aware)' = AVERAGE('clusters'[qrr_dml])
+		formatString: 0.00
+		lineageTag: b80f36b5-c0bf-5f4d-9997-f7654f8bc5a8
+
+	measure 'Avg SRR (DML-aware)' = AVERAGE('clusters'[srr_dml])
+		formatString: 0.00
+		lineageTag: 0ca27198-848f-58a8-82b1-5ed8fe38741a
+
+	measure 'Total selects' = SUM('clusters'[selects])
+		formatString: #,0
+		lineageTag: 2d02e798-c6e7-5f84-99c2-773a69460103
+
+	column cluster
+		dataType: string
+		lineageTag: 05d499af-6fcc-5b03-a613-31f668ead778
+		summarizeBy: none
+		sourceColumn: cluster
+
+	column variant
+		dataType: string
+		lineageTag: 013e51c8-4af5-5888-821d-6f4488ea1ded
+		summarizeBy: none
+		sourceColumn: variant
+
+	column highlight
+		dataType: string
+		lineageTag: 793fbd04-df28-5fb8-baa4-7a93c3c03185
+		summarizeBy: none
+		sourceColumn: highlight
+
+	column queries
+		dataType: int64
+		formatString: #,0
+		lineageTag: e1682ce4-2cb5-50cf-abc7-731e4670ffec
+		summarizeBy: none
+		sourceColumn: queries
+
+	column selects
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6874e9b4-167d-59d3-b468-e975cfa72b64
+		summarizeBy: none
+		sourceColumn: selects
+
+	column qrr_dml
+		dataType: double
+		formatString: 0.00
+		lineageTag: 295b998b-ea6a-5636-a24e-5a423115c04c
+		summarizeBy: none
+		sourceColumn: qrr_dml
+
+	column qrr
+		dataType: double
+		formatString: 0.00
+		lineageTag: fa20b8c1-69f3-5188-87da-d3df1fbffda2
+		summarizeBy: none
+		sourceColumn: qrr
+
+	column srr_dml
+		dataType: double
+		formatString: 0.00
+		lineageTag: ad3e4041-9330-5238-992a-2319762ba040
+		summarizeBy: none
+		sourceColumn: srr_dml
+
+	column srr
+		dataType: double
+		formatString: 0.00
+		lineageTag: 194824c3-81ca-569c-8bd2-66be0499edcb
+		summarizeBy: none
+		sourceColumn: srr
+
+	column qrr_dml_first1k
+		dataType: double
+		formatString: 0.00
+		lineageTag: 8796fe14-6209-5f06-ba75-a8bc32add6f8
+		summarizeBy: none
+		sourceColumn: qrr_dml_first1k
+
+	partition clusters = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "clusters.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"cluster", type text}, {"variant", type text}, {"highlight", type text}, {"queries", Int64.Type}, {"selects", Int64.Type}, {"qrr_dml", type number}, {"qrr", type number}, {"srr_dml", type number}, {"srr", type number}, {"qrr_dml_first1k", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

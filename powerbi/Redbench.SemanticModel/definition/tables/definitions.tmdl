@@ -1,0 +1,60 @@
+table definitions
+	lineageTag: 62173424-06c1-5de5-a5e4-82a7e5f5e630
+
+	measure 'Definition rate' = SUM(definitions[value])
+		formatString: 0.00
+		lineageTag: 8ef3a1aa-6d86-58ab-aaf4-c515ece181d4
+
+	column series
+		dataType: string
+		lineageTag: 468cc2f8-4a96-5320-bfac-f7cddbcdb570
+		summarizeBy: none
+		sourceColumn: series
+
+	column definition
+		dataType: string
+		lineageTag: 3026654a-6ed8-5b1f-8019-335447645ae3
+		summarizeBy: none
+		sourceColumn: definition
+		sortByColumn: definition_order
+
+	column definition_order
+		dataType: int64
+		isHidden
+		lineageTag: 0903890a-8fc2-5d07-9ff9-b0a9e429e505
+		summarizeBy: none
+		sourceColumn: definition_order
+
+	column metric
+		dataType: string
+		lineageTag: 408497a9-0267-5631-9ff1-28eeb4237089
+		summarizeBy: none
+		sourceColumn: metric
+		sortByColumn: metric_order
+
+	column metric_order
+		dataType: int64
+		isHidden
+		lineageTag: 7f738439-58ae-50bc-8c77-1f5f76021cc5
+		summarizeBy: none
+		sourceColumn: metric_order
+
+	column value
+		dataType: double
+		formatString: 0.00
+		lineageTag: 8b666142-23ab-584b-ab91-275f53186eac
+		summarizeBy: none
+		sourceColumn: value
+
+	partition definitions = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "definitions.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"series", type text}, {"definition", type text}, {"definition_order", Int64.Type}, {"metric", type text}, {"metric_order", Int64.Type}, {"value", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

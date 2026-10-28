@@ -1,0 +1,161 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "clusters_06",
+  "position": {
+    "x": 664,
+    "y": 84,
+    "z": 5000,
+    "height": 620,
+    "width": 600,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "cluster"
+                }
+              },
+              "queryRef": "clusters.cluster",
+              "nativeQueryRef": "cluster"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "selects"
+                }
+              },
+              "queryRef": "clusters.selects",
+              "nativeQueryRef": "selects"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "qrr_dml"
+                }
+              },
+              "queryRef": "clusters.qrr_dml",
+              "nativeQueryRef": "qrr_dml"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "qrr"
+                }
+              },
+              "queryRef": "clusters.qrr",
+              "nativeQueryRef": "qrr"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "srr_dml"
+                }
+              },
+              "queryRef": "clusters.srr_dml",
+              "nativeQueryRef": "srr_dml"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "srr"
+                }
+              },
+              "queryRef": "clusters.srr",
+              "nativeQueryRef": "srr"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "qrr_dml_first1k"
+                }
+              },
+              "queryRef": "clusters.qrr_dml_first1k",
+              "nativeQueryRef": "qrr_dml_first1k"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "clusters"
+                  }
+                },
+                "Property": "selects"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Databases (qrr_dml_first1k: the plot code''s default)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,2 @@
+first_arrival,last_arrival,queries,selects,dml,cache_hits_restored,distinct_selects,distinct_select_fingerprints,matching_distinct_select_sql,matching_same_arrival_times,matching_same_query_types,generation_distinct_select_sql,generation_same_arrival_times,generation_same_query_types,baseline_round_robin_distinct_select_sql,baseline_round_robin_same_arrival_times,baseline_round_robin_same_query_types
+2024-05-04 20:45:34.446403,2024-05-13 12:39:45.544081,36353,24881,11472,16055,6405,679,415,True,True,4907,True,True,6392,False,False

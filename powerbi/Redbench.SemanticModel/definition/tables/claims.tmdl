@@ -1,0 +1,92 @@
+table claims
+	lineageTag: 0ff06e3e-1e5c-5ab9-966e-a092a00ab877
+
+	measure Claims = COUNTROWS(claims)
+		formatString: 0
+		lineageTag: ec604f22-f763-5231-9137-791007ce5484
+
+	measure Confirmed = CALCULATE(COUNTROWS(claims), claims[verdict] = "confirmed") + 0
+		formatString: 0
+		lineageTag: adb59733-0441-5e6f-90d4-47ca488d8d06
+
+	measure Close = CALCULATE(COUNTROWS(claims), claims[verdict] = "close") + 0
+		formatString: 0
+		lineageTag: 4a28b851-4498-53af-9d0e-9ff759e82cf5
+
+	measure 'Not confirmed' = CALCULATE(COUNTROWS(claims), claims[verdict] = "not") + 0
+		formatString: 0
+		lineageTag: a331d147-be66-52be-b2bc-a40f2a93462b
+
+	measure 'Confirmed share' = DIVIDE([Confirmed], [Claims])
+		formatString: 0%
+		lineageTag: 707a1c27-d7bc-50a6-92bd-5960646203b0
+
+	column id
+		dataType: int64
+		isHidden
+		lineageTag: eb7d2541-7f4f-5b47-9514-2f8f6b9f3c2f
+		summarizeBy: none
+		sourceColumn: id
+
+	column section
+		dataType: string
+		lineageTag: 98b58d39-0007-560b-b2ce-2f1b3327f4d9
+		summarizeBy: none
+		sourceColumn: section
+
+	column claim
+		dataType: string
+		lineageTag: 958133c8-33cb-5954-baac-ae45ebd398d9
+		summarizeBy: none
+		sourceColumn: claim
+
+	column paper
+		dataType: string
+		lineageTag: 410bf1b2-097d-50a2-9a12-47b36a731dc3
+		summarizeBy: none
+		sourceColumn: paper
+
+	column replication
+		dataType: string
+		lineageTag: d772d801-9bd3-53d1-ba8d-99cdb2714a1b
+		summarizeBy: none
+		sourceColumn: replication
+
+	column verdict
+		dataType: string
+		lineageTag: a44d3b3e-e19c-5a0f-8a9e-afdd752103d8
+		summarizeBy: none
+		sourceColumn: verdict
+		sortByColumn: verdict_order
+
+	column note
+		dataType: string
+		lineageTag: 3b899ff0-6dcc-559a-a077-8865095d2bf0
+		summarizeBy: none
+		sourceColumn: note
+
+	column topic
+		dataType: string
+		lineageTag: 3d6fd4d2-6f71-54bc-9e25-0799915f8d7b
+		summarizeBy: none
+		sourceColumn: topic
+
+	column verdict_order
+		dataType: int64
+		isHidden
+		lineageTag: cf4f036a-3d0f-50b6-9ad2-9f68382a2367
+		summarizeBy: none
+		sourceColumn: verdict_order
+
+	partition claims = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "claims.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"id", Int64.Type}, {"section", type text}, {"claim", type text}, {"paper", type text}, {"replication", type text}, {"verdict", type text}, {"note", type text}, {"topic", type text}, {"verdict_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

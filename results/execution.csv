@@ -1,0 +1,3 @@
+workload,statements,distinct,timed_out_rows,rejected_rows,hit_share_selects,runtime_no_cache_s,runtime_cache_s,speedup,select_speedup,dml_share_no_cache
+matching,36353,11614,0,0,0.970981873718902,3525.84132176984,189.4163580001623,18.614238807013802,25.27054751983019,0.014733590697671748
+baseline_round_robin,36353,14500,26,0,0.0,17759.167104793654,17759.167104793654,1.0,1.0,0.005440966725746315

@@ -1,0 +1,46 @@
+table strings
+	lineageTag: b9fe46f7-d046-5110-bb4d-c45f6ceb473e
+
+	measure 'String filter share' = SUM(strings[value])
+		formatString: 0%
+		lineageTag: d8251d94-1945-5c75-ac25-2c114a884e20
+
+	column label
+		dataType: string
+		lineageTag: c176f90d-2b92-56dd-bd4e-1906cde34811
+		summarizeBy: none
+		sourceColumn: label
+
+	column source
+		dataType: string
+		lineageTag: c12d5475-2f23-5f5d-8ea9-e92e2508c71f
+		summarizeBy: none
+		sourceColumn: source
+		sortByColumn: source_order
+
+	column value
+		dataType: double
+		formatString: 0.00
+		lineageTag: 09dee3b7-ecf0-5688-a3ef-745b053ce46f
+		summarizeBy: none
+		sourceColumn: value
+
+	column source_order
+		dataType: int64
+		isHidden
+		lineageTag: fcf1feb2-aefd-5b9a-99c7-eb7b70766262
+		summarizeBy: none
+		sourceColumn: source_order
+
+	partition strings = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "strings.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"label", type text}, {"source", type text}, {"value", type number}, {"source_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

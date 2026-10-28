@@ -1,0 +1,5 @@
+expression DataFolder = "D:\da\redbench-replication\powerbi\data\" meta [IsParameterQuery = true, Type = "Text", IsParameterQueryRequired = true]
+	lineageTag: 50994f30-6267-5620-9a0c-43f537219d41
+
+	annotation PBI_ResultType = Text
+

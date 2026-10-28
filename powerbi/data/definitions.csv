@@ -1,0 +1,49 @@
+series,definition,definition_order,metric,metric_order,value
+Redset (trace),Generator stats (full),1,QRR (DML-aware),1,0.7378722720147904
+Redset (trace),Generator stats (full),1,QRR,2,0.7425746553595113
+Redset (trace),Generator stats (full),1,SRR (DML-aware),3,0.8744021542542503
+Redset (trace),Generator stats (full),1,SRR,4,0.8779389895904506
+Redset (trace),Plot code (full),2,QRR (DML-aware),1,0.7241352108231768
+Redset (trace),Plot code (full),2,QRR,2,0.7287500493038299
+Redset (trace),Plot code (full),2,SRR (DML-aware),3,0.8606870981737862
+Redset (trace),Plot code (full),2,SRR,4,0.8641580878002604
+Redset (trace),Plot code (first 1k rows),3,QRR (DML-aware),1,0.008695652173913044
+Redset (trace),Plot code (first 1k rows),3,QRR,2,0.008695652173913044
+Redset (trace),Plot code (first 1k rows),3,SRR (DML-aware),3,0.05217391304347826
+Redset (trace),Plot code (first 1k rows),3,SRR,4,0.05217391304347826
+Redbench matching,Generator stats (full),1,QRR (DML-aware),1,0.970981873718902
+Redbench matching,Generator stats (full),1,QRR,2,0.9833206060849644
+Redbench matching,Generator stats (full),1,SRR (DML-aware),3,0.9910775290382219
+Redbench matching,Generator stats (full),1,SRR,4,0.9987942606808408
+Redbench matching,Plot code (full),2,QRR (DML-aware),1,0.970981873718902
+Redbench matching,Plot code (full),2,QRR,2,0.9833206060849644
+Redbench matching,Plot code (full),2,SRR (DML-aware),3,0.9910775290382219
+Redbench matching,Plot code (full),2,SRR,4,0.9987942606808408
+Redbench matching,Plot code (first 1k rows),3,QRR (DML-aware),1,0.3333333333333333
+Redbench matching,Plot code (first 1k rows),3,QRR,2,0.3333333333333333
+Redbench matching,Plot code (first 1k rows),3,SRR (DML-aware),3,0.3333333333333333
+Redbench matching,Plot code (first 1k rows),3,SRR,4,0.6666666666666666
+Redbench generation,Generator stats (full),1,QRR (DML-aware),1,0.7448655600659138
+Redbench generation,Generator stats (full),1,QRR,2,0.8027812386961939
+Redbench generation,Generator stats (full),1,SRR (DML-aware),3,0.9597283067400828
+Redbench generation,Generator stats (full),1,SRR,4,0.9852899803062578
+Redbench generation,Plot code (full),2,QRR (DML-aware),1,0.8025340862140201
+Redbench generation,Plot code (full),2,QRR,2,0.8462470734058669
+Redbench generation,Plot code (full),2,SRR (DML-aware),3,0.9625946839278336
+Redbench generation,Plot code (full),2,SRR,4,0.98980856631318
+Redbench generation,Plot code (first 1k rows),3,QRR (DML-aware),1,0.8376753507014028
+Redbench generation,Plot code (first 1k rows),3,QRR,2,0.8567134268537074
+Redbench generation,Plot code (first 1k rows),3,SRR (DML-aware),3,0.9048096192384769
+Redbench generation,Plot code (first 1k rows),3,SRR,4,0.9589178356713427
+Round-robin baseline,Generator stats (full),1,QRR (DML-aware),1,0.0
+Round-robin baseline,Generator stats (full),1,QRR,2,0.7430971423978135
+Round-robin baseline,Generator stats (full),1,SRR (DML-aware),3,0.3606366303605161
+Round-robin baseline,Generator stats (full),1,SRR,4,0.9985129215063703
+Round-robin baseline,Plot code (full),2,QRR (DML-aware),1,0.0
+Round-robin baseline,Plot code (full),2,QRR,2,0.7430971423978135
+Round-robin baseline,Plot code (full),2,SRR (DML-aware),3,0.3606366303605161
+Round-robin baseline,Plot code (full),2,SRR,4,0.9985129215063703
+Round-robin baseline,Plot code (first 1k rows),3,QRR (DML-aware),1,0.0
+Round-robin baseline,Plot code (first 1k rows),3,QRR,2,0.0
+Round-robin baseline,Plot code (first 1k rows),3,SRR (DML-aware),3,0.34839650145772594
+Round-robin baseline,Plot code (first 1k rows),3,SRR,4,0.9766763848396501

@@ -1,0 +1,68 @@
+table repetition
+	lineageTag: 83d3aa2c-a89a-5cf4-bfe3-05e2c5d09c62
+
+	measure Rate = SUM(repetition[value])
+		formatString: 0.00
+		lineageTag: b9c44be3-7606-5ea7-85a4-6fdfcc43c629
+
+	column series
+		dataType: string
+		lineageTag: d3119364-6b0f-5db6-a9b9-a6ad66bd8bfd
+		summarizeBy: none
+		sourceColumn: series
+		sortByColumn: series_order
+
+	column series_order
+		dataType: int64
+		isHidden
+		lineageTag: 182b21a2-6779-5e92-877e-ff6102eaad12
+		summarizeBy: none
+		sourceColumn: series_order
+
+	column metric
+		dataType: string
+		lineageTag: 0d84106b-f271-5add-943e-b4db4788b86b
+		summarizeBy: none
+		sourceColumn: metric
+		sortByColumn: metric_order
+
+	column metric_order
+		dataType: int64
+		isHidden
+		lineageTag: 5dfd664a-521a-54ee-beee-093d862c9562
+		summarizeBy: none
+		sourceColumn: metric_order
+
+	column source
+		dataType: string
+		lineageTag: 954c4ca5-2407-57ea-96f2-35f6aab608b5
+		summarizeBy: none
+		sourceColumn: source
+		sortByColumn: source_order
+
+	column value
+		dataType: double
+		formatString: 0.00
+		lineageTag: 60d2f33a-89ca-5b76-96fe-3cf8959b6620
+		summarizeBy: none
+		sourceColumn: value
+
+	column source_order
+		dataType: int64
+		isHidden
+		lineageTag: 5787160b-c129-5314-a2e9-22dc32f5340d
+		summarizeBy: none
+		sourceColumn: source_order
+
+	partition repetition = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "repetition.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"series", type text}, {"series_order", Int64.Type}, {"metric", type text}, {"metric_order", Int64.Type}, {"source", type text}, {"value", type number}, {"source_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

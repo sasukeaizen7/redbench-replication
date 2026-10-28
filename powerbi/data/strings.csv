@@ -1,0 +1,8 @@
+label,source,value,source_order
+Redbench matching,Paper,0.67,1
+Redbench generation,Paper,0.75,1
+Snowflake (Szlang et al.),Reference,0.58,3
+TPC-DS,Reference,0.22,3
+Redbench matching,Replication,0.6862390995114107,2
+Redbench generation,Replication,0.8064670494941208,2
+Round-robin baseline,Replication,0.632041250427318,2

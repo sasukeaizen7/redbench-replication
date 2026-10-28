@@ -1,0 +1,33 @@
+series,series_order,metric,metric_order,source,value,source_order
+Redset (trace),1,QRR (DML-aware),1,Paper,0.72,1
+Redset (trace),1,QRR (DML-aware),1,Replication,0.7241352108231768,2
+Redset (trace),1,QRR,2,Paper,0.73,1
+Redset (trace),1,QRR,2,Replication,0.7287500493038299,2
+Redset (trace),1,SRR (DML-aware),3,Paper,0.86,1
+Redset (trace),1,SRR (DML-aware),3,Replication,0.8606870981737862,2
+Redset (trace),1,SRR,4,Paper,0.87,1
+Redset (trace),1,SRR,4,Replication,0.8641580878002604,2
+Redbench matching,2,QRR (DML-aware),1,Paper,0.97,1
+Redbench matching,2,QRR (DML-aware),1,Replication,0.970981873718902,2
+Redbench matching,2,QRR,2,Paper,0.98,1
+Redbench matching,2,QRR,2,Replication,0.9833206060849644,2
+Redbench matching,2,SRR (DML-aware),3,Paper,0.99,1
+Redbench matching,2,SRR (DML-aware),3,Replication,0.9910775290382219,2
+Redbench matching,2,SRR,4,Paper,0.99,1
+Redbench matching,2,SRR,4,Replication,0.9987942606808408,2
+Redbench generation,3,QRR (DML-aware),1,Paper,0.73,1
+Redbench generation,3,QRR (DML-aware),1,Replication,0.7448655600659138,2
+Redbench generation,3,QRR,2,Paper,0.79,1
+Redbench generation,3,QRR,2,Replication,0.8027812386961939,2
+Redbench generation,3,SRR (DML-aware),3,Paper,0.95,1
+Redbench generation,3,SRR (DML-aware),3,Replication,0.9597283067400828,2
+Redbench generation,3,SRR,4,Paper,0.98,1
+Redbench generation,3,SRR,4,Replication,0.9852899803062578,2
+Round-robin baseline,4,QRR (DML-aware),1,Paper,0.0,1
+Round-robin baseline,4,QRR (DML-aware),1,Replication,0.0,2
+Round-robin baseline,4,QRR,2,Paper,0.74,1
+Round-robin baseline,4,QRR,2,Replication,0.7430971423978135,2
+Round-robin baseline,4,SRR (DML-aware),3,Paper,0.36,1
+Round-robin baseline,4,SRR (DML-aware),3,Replication,0.3606366303605161,2
+Round-robin baseline,4,SRR,4,Paper,0.99,1
+Round-robin baseline,4,SRR,4,Replication,0.9985129215063703,2

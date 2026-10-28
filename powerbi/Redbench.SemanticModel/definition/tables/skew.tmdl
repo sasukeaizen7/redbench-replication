@@ -1,0 +1,46 @@
+table skew
+	lineageTag: af2f7419-d162-5e92-8a93-0ad888e266b9
+
+	measure 'CPU share of top 0.1%' = SUM(skew[value])
+		formatString: 0%
+		lineageTag: 26c32d35-45c6-530d-ae69-cec2ed780b64
+
+	column label
+		dataType: string
+		lineageTag: 0b9c5e12-639a-58b2-9490-26edc6ba2ffc
+		summarizeBy: none
+		sourceColumn: label
+
+	column source
+		dataType: string
+		lineageTag: 83928519-9ff1-52bd-bf5b-3a3005a0e561
+		summarizeBy: none
+		sourceColumn: source
+		sortByColumn: source_order
+
+	column value
+		dataType: double
+		formatString: 0.00
+		lineageTag: 50550add-f14e-55be-bec8-4c53f5204a77
+		summarizeBy: none
+		sourceColumn: value
+
+	column source_order
+		dataType: int64
+		isHidden
+		lineageTag: a4cdeb04-01b2-56e6-bae1-581ddbbe4a37
+		summarizeBy: none
+		sourceColumn: source_order
+
+	partition skew = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "skew.csv"), [Delimiter = ",", Encoding = 65001, QuoteStyle = QuoteStyle.Csv]),
+				    Headers = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				    Typed = Table.TransformColumnTypes(Headers, {{"label", type text}, {"source", type text}, {"value", type number}, {"source_order", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,130 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.4.0/schema.json",
+  "name": "scorecard_08",
+  "position": {
+    "x": 412,
+    "y": 284,
+    "z": 7000,
+    "height": 420,
+    "width": 852,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "section"
+                }
+              },
+              "queryRef": "claims.section",
+              "nativeQueryRef": "section"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "claim"
+                }
+              },
+              "queryRef": "claims.claim",
+              "nativeQueryRef": "claim"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "paper"
+                }
+              },
+              "queryRef": "claims.paper",
+              "nativeQueryRef": "paper"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "replication"
+                }
+              },
+              "queryRef": "claims.replication",
+              "nativeQueryRef": "replication"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "verdict"
+                }
+              },
+              "queryRef": "claims.verdict",
+              "nativeQueryRef": "verdict"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "claims"
+                    }
+                  },
+                  "Property": "note"
+                }
+              },
+              "queryRef": "claims.note",
+              "nativeQueryRef": "note"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Claims'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

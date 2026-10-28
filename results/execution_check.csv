@@ -1,0 +1,3 @@
+workload,rows,hits_agree,failed_dml,timed_out,real_cached_run_s,simulated_cached_run_s
+matching,2000,True,0,0,12.527357699989807,10.717991900077322
+baseline_round_robin,2000,True,0,1,839.2645985999843,819.505314299633

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Redbench"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "1e9c743d-dc01-5e5e-a311-a76ad1e9b0d0"
+  }
+}

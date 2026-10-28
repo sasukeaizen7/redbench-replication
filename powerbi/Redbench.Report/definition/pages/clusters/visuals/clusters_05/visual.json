@@ -1,0 +1,240 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.14.0/schema.json",
+  "name": "clusters_05",
+  "position": {
+    "x": 16,
+    "y": 210,
+    "z": 4000,
+    "height": 494,
+    "width": 632,
+    "tabOrder": 4000
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "cluster"
+                }
+              },
+              "queryRef": "clusters.cluster",
+              "nativeQueryRef": "cluster",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "highlight"
+                }
+              },
+              "queryRef": "clusters.highlight",
+              "nativeQueryRef": "highlight"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "Total selects"
+                }
+              },
+              "queryRef": "clusters.Total selects",
+              "nativeQueryRef": "Total selects"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "Avg SRR (DML-aware)"
+                }
+              },
+              "queryRef": "clusters.Avg SRR (DML-aware)",
+              "nativeQueryRef": "Avg SRR (DML-aware)",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "clusters"
+                    }
+                  },
+                  "Property": "Avg QRR (DML-aware)"
+                }
+              },
+              "queryRef": "clusters.Avg QRR (DML-aware)",
+              "nativeQueryRef": "Avg QRR (DML-aware)"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "legend": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "position": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Bottom'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dataPoint": [
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#C2453D'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "clusters"
+                          }
+                        },
+                        "Property": "highlight"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Paper cluster 186/8'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1F6FB2'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "clusters"
+                          }
+                        },
+                        "Property": "highlight"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Other clusters'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'QRR vs SRR per database (bubble size: selects)'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
